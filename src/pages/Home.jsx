@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import AsideFilter from "../components/asideFilter";
 import CardProduct from "../components/CardProduct";
 import FormSearch from "../components/FormSearch";
-import { getCartThunk } from "../store/slices/cart.slice";
 import { getProductsThunk } from "../store/slices/products.slice";
 
 const Home = () => {
@@ -13,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProductsThunk());
-    dispatch(getCartThunk())
+    
   }, []);
 
   const openFilter = () => {

@@ -1,45 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { buyCart, removeProductThunk } from "../store/slices/cart.slice";
 
-const Cart = ({isCartOpen}) => {
+const Cart = ({ isCartOpen }) => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
-  const cart = useSelector(state => state.cart)
-  const dispatch = useDispatch()
-
-  const deleteProduct = id => {
+  const deleteProduct = (id) => {
     dispatch(removeProductThunk(id));
-  }
+  };
+  
+ console.log(cart);
 
- 
-   console.log(cart.products);
   return (
-    <aside className={`aside-cart ${isCartOpen ? 'active' : ''}`}>
+    <aside className={`aside-cart ${isCartOpen ? "active" : ""}`}>
       <h2>Cart</h2>
       <div className="container-aside-cart">
-
-        { cart.products?.map( item => (
-
-        <article key={item.id} className="cart-item">
-          <div className="cart-head">
-            <p>{item.brand}</p>
-            <button onClick={() => deleteProduct(item.id)}>
-              <i className="bx bxs-trash"></i>
-            </button>
-          </div>
-          <div className="cart-body">
-            <p>{item.title}</p>
-            <input type="text" value="3" disabled />
-          </div>
-          <div className="cart-footer">
-            <p>
-              Total <span> $ {item.price}</span>
-            </p>
-          </div>
-        </article>
-
+        {cart.products?.map((item) => (
+          <article key={item.id} className="cart-item">
+            <div className="cart-head">
+              <p>{item.brand}</p>
+              <button onClick={() => deleteProduct(item.id)}>
+                <i className="bx bxs-trash"></i>
+              </button>
+            </div>
+            <div className="cart-body">
+              <p>{item.title}</p>
+              <input type="text" defaultValue={item.quantity} disabled />
+            </div>
+            <div className="cart-footer">
+              <p>
+                Total <span> $ {item.price}</span>
+              </p>
+            </div>
+          </article>
         ))}
-    
       </div>
       <div className="aside-cart-footer">
         <div className="cart-total">

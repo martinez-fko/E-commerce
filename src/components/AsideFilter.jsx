@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getProductByCategory } from "../store/slices/products.slice";
 
 const AsideFilter = ({ openFilter }) => {
   const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -35,10 +38,13 @@ const AsideFilter = ({ openFilter }) => {
       <div className="aside-filter__category">
         <h2 className="aside-filter__subtitle">Category</h2>
         <ul>
+          <li onClick={() => dispatch(getProductByCategory(""))}>
+            ALL
+          </li>
           {categories.map((category) => (
             <li
               key={category.id}
-              onClick={() => dispatch(getCategoryId(category.id))}
+              onClick={() => dispatch(getProductByCategory(category.id))}
             >
               {category.name}
             </li>
