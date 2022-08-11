@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { setIsLoading } from "../store/slices/isLoading.Slice";
+import { setIsLoading } from "../store/slices/isLoading.slice";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
