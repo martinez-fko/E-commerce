@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import AsideFilter from "../components/asideFilter";
+import AsideFilter from "../components/AsideFilter";
 import CardProduct from "../components/CardProduct";
 import FormSearch from "../components/FormSearch";
 import { getProductsThunk } from "../store/slices/products.slice";
