@@ -10,6 +10,14 @@ const Cart = ({ isCartOpen }) => {
   const deleteProduct = (id) => {
     dispatch(removeProductThunk(id));
   };
+
+  const total = () => {
+    let check = 0;
+    cart.products.map( item => {
+        check += item.productsInCart.quantity * item.price
+    })
+    return check
+  }
   
  console.log(cart);
 
@@ -27,11 +35,11 @@ const Cart = ({ isCartOpen }) => {
             </div>
             <div className="cart-body">
               <p>{item.title}</p>
-              <input type="text" defaultValue={item.quantity} disabled />
+              <input type="text" defaultValue={item.productsInCart.quantity} disabled />
             </div>
             <div className="cart-footer">
               <p>
-                Total <span> $ {item.price}</span>
+                Total <span> $ {item.productsInCart.quantity * item.price}</span>
               </p>
             </div>
           </article>
@@ -40,7 +48,7 @@ const Cart = ({ isCartOpen }) => {
       <div className="aside-cart-footer">
         <div className="cart-total">
           <p>Total</p>
-          <p>$ 4094</p>
+          <p>$ {total()}</p>
         </div>
         <button onClick={() => dispatch(buyCart())}>Checkout</button>
       </div>
