@@ -7,12 +7,10 @@ import { getProductsThunk } from "../store/slices/products.slice";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const products = useSelector(state => state.products)
-  
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(getProductsThunk());
-    
   }, []);
 
   const openFilter = () => {
@@ -20,21 +18,19 @@ const Home = () => {
     asideFilter.classList.toggle("active");
   };
 
-
   return (
     <main className="container">
-      <AsideFilter openFilter={openFilter}/>
+      <AsideFilter openFilter={openFilter} />
 
       <section className="container-products">
-
-        <FormSearch/>
+        <FormSearch />
         <button onClick={openFilter} className="btn-filter">
           <i className="bx bx-filter-alt"></i> Filters
         </button>
         <section className="container-card">
-        { products.map(product => ( 
-          <CardProduct key={product.id} product={product} />
-        ))}
+          {products.map((product) => (
+            <CardProduct key={product.id} product={product} />
+          ))}
         </section>
       </section>
     </main>

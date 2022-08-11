@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import getConfig from "../../utils/getConfig";
-import { setIsLoading } from "./isLoading.Slice";
+import { setIsLoading } from "./isLoading.slice";
 import { getPurchasesThunk } from "./purchases.slice";
 
 export const cartSlice = createSlice({
@@ -58,10 +58,10 @@ export const buyCart = () => (dispatch) => {
       {},
       getConfig()
     )
-    .then(() => { 
+    .then(() => {
       dispatch(setCart([]));
-      dispatch(getPurchasesThunk())
-    } )
+      dispatch(getPurchasesThunk());
+    })
     .finally(() => dispatch(setIsLoading(false)));
 };
 
