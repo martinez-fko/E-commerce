@@ -22,7 +22,6 @@ const Login = () => {
       )
       .then((res) => {
         navigate("/");
-        console.log(res);
         localStorage.setItem("token", res.data.data.token);
       });
   };

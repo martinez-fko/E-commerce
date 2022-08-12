@@ -7,10 +7,15 @@ import { useNavigate } from "react-router-dom";
 const CardProduct = ({product}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   const addProduct = id => {
-    const data = { id : id , quantity : 1 }
-    dispatch(addProductThunk(data))
+    if(token){
+      const data = { id : id , quantity : 1 }
+      dispatch(addProductThunk(data))
+    }else{
+      navigate("/login")
+    }
   }
 
   const detailProduct = () => {

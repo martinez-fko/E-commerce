@@ -13,13 +13,11 @@ const Cart = ({ isCartOpen }) => {
 
   const total = () => {
     let check = 0;
-    cart.products.map( item => {
-        check += item.productsInCart.quantity * item.price
-    })
-    return check
-  }
-  
- console.log(cart);
+    cart.products?.map((item) => {
+      check += item.productsInCart.quantity * item.price;
+    });
+    return check;
+  };
 
   return (
     <aside className={`aside-cart ${isCartOpen ? "active" : ""}`}>
@@ -35,11 +33,16 @@ const Cart = ({ isCartOpen }) => {
             </div>
             <div className="cart-body">
               <p>{item.title}</p>
-              <input type="text" defaultValue={item.productsInCart.quantity} disabled />
+              <input
+                type="text"
+                defaultValue={item.productsInCart.quantity}
+                disabled
+              />
             </div>
             <div className="cart-footer">
               <p>
-                Total <span> $ {item.productsInCart.quantity * item.price}</span>
+                Total{" "}
+                <span> $ {item.productsInCart.quantity * item.price}</span>
               </p>
             </div>
           </article>

@@ -7,13 +7,11 @@ const FormSearch = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
-  console.log(search);
-
-  const submit = e => {
+  const submit = (e) => {
     e.preventDefault();
     dispatch(searchProductThunk(search));
-  }
-  
+  };
+
   return (
     <form onSubmit={submit} className="form-search">
       <input
@@ -21,7 +19,7 @@ const FormSearch = () => {
         type="text"
         placeholder="What are you looking for?"
         value={search}
-        onChange={ e => setSearch(e.target.value) }
+        onChange={(e) => setSearch(e.target.value)}
       />
       <button className="form-search__btn">
         <i className="bx bx-search-alt-2"></i>

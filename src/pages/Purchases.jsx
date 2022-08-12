@@ -15,7 +15,6 @@ const Purchases = () => {
     return new Date(date).toLocaleDateString('en-us', options);
   };
 
-  console.log(purchases);
 
   return (
     <div className="container-purchase">
@@ -25,7 +24,6 @@ const Purchases = () => {
           <div className="date-purchase">
             <h2>{ formated(item.createdAt) }</h2>
           </div>
-          {console.log(item)}
           {item.cart.products.map((cart) => (
             <div key={cart.id} className="detail-product-purchase">
               <h3>{cart.title}</h3>
