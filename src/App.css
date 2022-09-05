@@ -45,6 +45,9 @@
     background: none;
     border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .nav-principal .btn_icon:hover i {

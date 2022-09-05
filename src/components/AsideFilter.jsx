@@ -21,7 +21,7 @@ const AsideFilter = ({ openFilter }) => {
         <i className="bx bx-x"></i>
       </button>
       <h2 className="aside-filter__title">Filters</h2>
-      <div className="aside-filter__price">
+      {/* <div className="aside-filter__price">
         <h2 className="aside-filter__subtitle">Price</h2>
         <form>
           <div className="form-input">
@@ -34,7 +34,7 @@ const AsideFilter = ({ openFilter }) => {
           </div>
           <button className="aside-filter__btn-filter">Filter Price</button>
         </form>
-      </div>
+      </div> */}
       <div className="aside-filter__category">
         <h2 className="aside-filter__subtitle">Category</h2>
         <ul>
